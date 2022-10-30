@@ -104,11 +104,11 @@ public class FinalCasePractium extends GenelWebdriver {
         FinalCasePractiumPOM elements = new FinalCasePractiumPOM(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         elements = new FinalCasePractiumPOM(driver);
-       // elements.product.click();
-       // elements.product.clear();
-       // wait.until(ExpectedConditions.visibilityOf(elements.product));
-       // elements.product.sendKeys(Product);
-        Log4j.info("Product :" + "karaca fritözler");
+
+        elements.product.clear();
+        wait.until(ExpectedConditions.visibilityOf(elements.product));
+        elements.product.sendKeys(Product);
+        Log4j.info("Product :" + Product);
         elements.SearchButton.click();
         wait.until(ExpectedConditions.visibilityOf(elements.productTik));
         elements.productTik.click();
