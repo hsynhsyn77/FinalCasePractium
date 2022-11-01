@@ -38,12 +38,15 @@ public class FinalCasePractiumPOM {
     public WebElement accountTxt;
 
     @FindBy(css = " input[type='text']")
-    public WebElement product;
+    public WebElement search;
+
+    @FindBy(css = "i[class='Icon-mmozS7hAyo_kamAvO3d7 SearchBoxOld-mrtEgcTtTCASw8fiP4EG']")
+    public WebElement searchBoxDelete;
 
     @FindBy(css = "div[class='SearchBoxOld-cHxjyU99nxdIaAbGyX7F']")
     public WebElement SearchButton;
 
-    @FindBy(xpath = "(//div[@data-test-id='product-info-wrapper'])[3]")
+    @FindBy(xpath = "(//div[@data-test-id='product-info-wrapper'])[2]")
     public WebElement productTik;
 
     @FindBy(xpath = "svg[width='171']")
@@ -56,7 +59,7 @@ public class FinalCasePractiumPOM {
     @FindBy(xpath = "(//button[@class='add-to-basket button small'])[1]")
     public WebElement product1AddCart;
 
-    @FindBy(css = "div[class='popup']>i")
+    @FindBy(css = "[data-bind] .close")
     public WebElement noRepair;
 
     @FindBy(css = "div[class='checkoutui-Modal-iooaV']>h1>a")

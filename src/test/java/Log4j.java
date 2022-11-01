@@ -2,7 +2,7 @@ import org.apache.log4j.Logger;
 
 public class Log4j {
 
-    private static Logger Log = Logger.getLogger(Log4j.class.getName());
+    static Logger Log = Logger.getLogger(Log4j.class.getName());
 
     public static void startLog (String testClassName){
         Log.info("Test is Starting...");
@@ -16,6 +16,7 @@ public class Log4j {
     //Info Level
     public static void info (String message) {
         Log.info(message);
+
     }
 
     //Warn Level

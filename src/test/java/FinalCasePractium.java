@@ -1,6 +1,7 @@
 import Utility.GenelWebdriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,9 +22,7 @@ public class FinalCasePractium extends GenelWebdriver {
 
         FinalCasePractiumPOM elements = new FinalCasePractiumPOM(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
-
         elements.cookie.click();
-
         Actions actions1 = new Actions(driver);
         actions1.moveToElement(elements.input).build().perform();
         elements.login.click();
@@ -43,7 +42,7 @@ public class FinalCasePractium extends GenelWebdriver {
         wait.until(ExpectedConditions.visibilityOf(elements.accountTxt));
         Assert.assertEquals(elements.accountTxt.getText(), "Hesabım", "Karşılaştırma Sonucu : ");
 
-        elements.product.sendKeys(Product);
+        elements.search.sendKeys(Product);
         elements.SearchButton.click();
         wait.until(ExpectedConditions.visibilityOf(elements.productTik));
         elements.productTik.click();
@@ -78,10 +77,9 @@ public class FinalCasePractium extends GenelWebdriver {
         }
 
         List<WebElement> removeCard = driver.findElements(By.xpath("//a[@class='product_delete_1zR-0']"));
-        for (WebElement e:removeCard)
-        {
-        js.executeScript("arguments[0].scrollIntoView()", e);
-        js.executeScript("arguments[0].click()", e);
+        for (WebElement e : removeCard) {
+            js.executeScript("arguments[0].scrollIntoView()", e);
+            js.executeScript("arguments[0].click()", e);
         }
 
         String newtab1 = driver.getWindowHandle();
@@ -100,23 +98,21 @@ public class FinalCasePractium extends GenelWebdriver {
     @Test(priority = 2)
     void userlessLogin() {
 
-
         FinalCasePractiumPOM elements = new FinalCasePractiumPOM(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         elements = new FinalCasePractiumPOM(driver);
-
-        elements.product.clear();
-        wait.until(ExpectedConditions.visibilityOf(elements.product));
-        elements.product.sendKeys(Product);
+        elements.searchBoxDelete.click();
+        wait.until(ExpectedConditions.visibilityOf(elements.search));
+        elements.search.sendKeys(Product);
         Log4j.info("Product :" + Product);
         elements.SearchButton.click();
         wait.until(ExpectedConditions.visibilityOf(elements.productTik));
         elements.productTik.click();
 
-        String anaSayfaWindow = driver.getWindowHandle();
+        String anaSayfaWindows = driver.getWindowHandle();
         Set<String> windows = driver.getWindowHandles();
         for (String id : windows) {
-            if (id.equals(anaSayfaWindow)) continue;
+            if (id.equals(anaSayfaWindows)) continue;
             driver.switchTo().window(id);
         }
 
@@ -144,8 +140,7 @@ public class FinalCasePractium extends GenelWebdriver {
         }
 
         List<WebElement> removeCard = driver.findElements(By.xpath("//a[@class='product_delete_1zR-0']"));
-        for (WebElement e:removeCard)
-        {
+        for (WebElement e : removeCard) {
             js.executeScript("arguments[0].scrollIntoView()", e);
             js.executeScript("arguments[0].click()", e);
         }
