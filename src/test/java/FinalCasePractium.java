@@ -15,7 +15,9 @@ import java.util.Set;
 public class FinalCasePractium extends GenelWebdriver {
     String email = "hepsibuka@gmail.com";
     String password = "Hb123456";
-    String Product = "fritözler";
+    String Product = "fritöz";
+
+    String Product2="fritöz";
 
     @Test(priority = 1)
     void userLogin() {
@@ -44,6 +46,7 @@ public class FinalCasePractium extends GenelWebdriver {
 
         elements.search.sendKeys(Product);
         elements.SearchButton.click();
+
         wait.until(ExpectedConditions.visibilityOf(elements.productTik));
         elements.productTik.click();
 
@@ -57,18 +60,20 @@ public class FinalCasePractium extends GenelWebdriver {
         js.executeScript("arguments[0].scrollIntoView()", elements.addCart);
         js.executeScript("arguments[0].click()", elements.addCart);
 
-        wait.until(ExpectedConditions.visibilityOf(elements.close));
-        elements.close.click();
 
-        js.executeScript("arguments[0].scrollIntoView()", elements.product1AddCart);
-        js.executeScript("arguments[0].click()", elements.product1AddCart);
+        wait.until(ExpectedConditions.visibilityOf(elements.close2));
+        elements.close2.click();
+
+        js.executeScript("arguments[0].scrollIntoView()", elements.product2AddCart);
+        js.executeScript("arguments[0].click()", elements.product2AddCart);
 
         wait.until(ExpectedConditions.visibilityOf(elements.noRepair));
         elements.noRepair.click();
-        wait.until(ExpectedConditions.visibilityOf(elements.close));
-        elements.close.click();
-        js.executeScript("window.scrollBy(0,-1000)");
-        elements.myBasket.click();
+        wait.until(ExpectedConditions.visibilityOf(elements.ürünSepetteKapat));
+        elements.ürünSepetteKapat.click();
+
+        js.executeScript("window.scrollBy(0,-1200)");
+        elements.shoppingCart.click();
 
         List<WebElement> addCardList = driver.findElements(By.cssSelector("[class='product_name_3Lh3t']>a"));
         for (WebElement e : addCardList) {
@@ -101,13 +106,18 @@ public class FinalCasePractium extends GenelWebdriver {
         FinalCasePractiumPOM elements = new FinalCasePractiumPOM(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         elements = new FinalCasePractiumPOM(driver);
+
         elements.searchBoxDelete.click();
         wait.until(ExpectedConditions.visibilityOf(elements.search));
-        elements.search.sendKeys(Product);
-        Log4j.info("Product :" + Product);
+        elements.search.sendKeys(Product2);
+        Log4j.info("Product :" + Product2);
         elements.SearchButton.click();
-        wait.until(ExpectedConditions.visibilityOf(elements.productTik));
-        elements.productTik.click();
+
+        wait.until(ExpectedConditions.visibilityOf(elements.productTik2));
+        js.executeScript("arguments[0].scrollIntoView()", elements.productTik2);
+        js.executeScript("arguments[0].click()", elements.productTik2);
+
+
 
         String anaSayfaWindows = driver.getWindowHandle();
         Set<String> windows = driver.getWindowHandles();
@@ -116,22 +126,24 @@ public class FinalCasePractium extends GenelWebdriver {
             driver.switchTo().window(id);
         }
 
-        js.executeScript("arguments[0].scrollIntoView()", elements.product1AddCart);
-        js.executeScript("arguments[0].click()", elements.product1AddCart);
+        js.executeScript("arguments[0].scrollIntoView()", elements.addCart);
+        js.executeScript("arguments[0].click()", elements.addCart);
 
-        wait.until(ExpectedConditions.visibilityOf(elements.noRepair));
-        elements.noRepair.click();
-        wait.until(ExpectedConditions.visibilityOf(elements.close));
-        elements.close.click();
-        elements.satici2SepeteEkle.click();
+        wait.until(ExpectedConditions.visibilityOf(elements.ürünSepetteKapat));
+        elements.ürünSepetteKapat.click();
 
-        wait.until(ExpectedConditions.visibilityOf(elements.noRepair));
-        elements.noRepair.click();
-        wait.until(ExpectedConditions.visibilityOf(elements.close));
-        elements.close.click();
+        js.executeScript("arguments[0].scrollIntoView()", elements.product2AddCart);
+        js.executeScript("arguments[0].click()", elements.product2AddCart);
+
+       wait.until(ExpectedConditions.visibilityOf(elements.noRepair));
+       elements.noRepair.click();
+
+
+        wait.until(ExpectedConditions.visibilityOf(elements.ürünSepetteKapat2));
+        elements.ürünSepetteKapat2.click();
 
         js.executeScript("window.scrollBy(0,-1000)");
-        elements.myBasket.click();
+        elements.shoppingCart.click();
 
         List<WebElement> sepet = driver.findElements(By.cssSelector("[class='product_name_3Lh3t']>a"));
         for (WebElement e : sepet) {

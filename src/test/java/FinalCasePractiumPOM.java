@@ -46,8 +46,11 @@ public class FinalCasePractiumPOM {
     @FindBy(css = "div[class='SearchBoxOld-cHxjyU99nxdIaAbGyX7F']")
     public WebElement SearchButton;
 
-    @FindBy(xpath = "(//div[@data-test-id='product-info-wrapper'])[2]")
+    @FindBy(id = "i2")
     public WebElement productTik;
+
+    @FindBy(xpath = "(//div[@data-test-id='product-info-wrapper'])[2]")
+    public WebElement productTik2;
 
     @FindBy(xpath = "svg[width='171']")
     public WebElement ürünAdiGör;
@@ -56,20 +59,29 @@ public class FinalCasePractiumPOM {
     public WebElement addCart;
 
 
-    @FindBy(xpath = "(//button[@class='add-to-basket button small'])[1]")
+    @FindBy(xpath = "(//h3[@class='moria-ProductCard-fHiOwt eaNrp sqw67vyonfl'])[2]")
     public WebElement product1AddCart;
 
-    @FindBy(css = "[data-bind] .close")
+    @FindBy(xpath = "//i[@class='close']")
     public WebElement noRepair;
+
+    @FindBy(css = "a[class='checkoutui-Modal-iHhyy79iR28NvF33vKJb']>svg")
+    public WebElement close2;
 
     @FindBy(css = "div[class='checkoutui-Modal-iooaV']>h1>a")
     public WebElement close;
 
-    @FindBy(xpath = " (//button[@class='add-to-basket button small'])[2]")
-    public WebElement satici2SepeteEkle;
+    @FindBy(xpath = " (//button[@class='add-to-basket button small'])[1]")
+    public WebElement product2AddCart;
+
+    @FindBy(css = "a[class='checkoutui-Modal-iHhyy79iR28NvF33vKJb']>svg")
+    public WebElement ürünSepetteKapat;
+
+    @FindBy(css = "a[class='checkoutui-Modal-iHhyy79iR28NvF33vKJb']>svg")
+    public WebElement ürünSepetteKapat2;
 
     @FindBy(id = "shoppingCart")
-    public WebElement myBasket;
+    public WebElement shoppingCart;
 
     @FindBy(xpath = "(//a[@class='product_delete_1zR-0'])[1]")
     public WebElement removeCard;

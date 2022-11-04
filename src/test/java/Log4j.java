@@ -16,7 +16,7 @@ public class Log4j {
     //Info Level
     public static void info (String message) {
         Log.info(message);
-
+        System.out.println();
     }
 
     //Warn Level
