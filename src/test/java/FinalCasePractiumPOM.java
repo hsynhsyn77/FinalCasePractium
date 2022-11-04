@@ -46,11 +46,17 @@ public class FinalCasePractiumPOM {
     @FindBy(css = "div[class='SearchBoxOld-cHxjyU99nxdIaAbGyX7F']")
     public WebElement SearchButton;
 
-    @FindBy(id = "i2")
+    @FindBy(id = "i0")
     public WebElement productTik;
 
-    @FindBy(xpath = "(//div[@data-test-id='product-info-wrapper'])[2]")
+    @FindBy(id="i1")
+    public WebElement product2Tik;
+
+    @FindBy(xpath = "(//h3[@type='comfort'])[2]")
     public WebElement productTik2;
+
+    @FindBy(css = "div[class='sf-OldHeader-FpTYTu4Avgrxt5ZgRSEL']>div>div")
+    public WebElement homePage;
 
     @FindBy(xpath = "svg[width='171']")
     public WebElement ürünAdiGör;

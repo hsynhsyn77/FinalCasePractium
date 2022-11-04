@@ -23,4 +23,5 @@ ________________________
 * Arama yapılan ürün ile yeni sekmede işleme devam edilir.
 * Ürün ilk açılan satıcıdan sepete eklenir.
 * Farklı bir satıcıdan ürün tekrar dan sepete eklenir.
+* Kullanıcı sepete gider.
 * Sepetteki ürünler doğrulandıktan sonra ürünler sepetten silinir.
