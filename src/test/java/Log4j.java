@@ -1,6 +1,6 @@
 import org.apache.log4j.Logger;
 
-public class Log4j extends FinalCasePractium {
+public class Log4j {
 
     static Logger Log = Logger.getLogger(Log4j.class.getName());
 
